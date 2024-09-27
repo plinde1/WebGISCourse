@@ -25,8 +25,24 @@
     <script>
         var map = L.map("map", {center: [41.3147, -105.5690], zoom: 17});
         L.titlelayer(
-            
-        )
+            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            {attribute: '&copy; <a href="http://' + 
+            'www.openstreetmap.org/copyright">OpenStreetMap</a>'}
+        ).addTo(map);
+
+        var pnt = L.marker([41.3142, -105.5808]).addTo(map);
+
+        L.circleMarker(
+            [41.3142, -105.5808 - 0.001],
+            {radius: 50, color: "black", fillcolor: "red"}
+        ).addTo(map);
+
+        var line = L.polyline(
+            [[41.3142, -105.5808], [41.31207, -105.56826]],
+            {color: "red", weight: 10}
+        ).addTo(map);
+
+
     </script>
 </body>
 </html>
